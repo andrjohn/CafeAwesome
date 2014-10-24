@@ -1,8 +1,10 @@
 
-public abstract class Espresso {
-	// Mmm, coffee!
-	public abstract String getName();
+public abstract class Espresso implements Purchasable {
+	private final float arabicaContent;
 	
-	// Cost in pence
-	public abstract int getPrice();
+	public float getArabicaContent() { return arabicaContent; }
+	
+	protected Espresso (float arabicaContent) {
+		this.arabicaContent = arabicaContent;
+	}
 }

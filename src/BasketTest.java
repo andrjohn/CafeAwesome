@@ -1,21 +1,25 @@
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 
 public class BasketTest {
 
-	Espresso houseRoast;
+	Espresso houseRoast  = HouseRoast.get();
+	Espresso darkItalian = new DarkItalian();
 
-	@Before
-	public void setup() {
-		houseRoast = new HouseRoast();
-	}
-	
 	@Test
-	public void test() {
-		assertEquals(houseRoast.getName(), "House Roast");
+	public void receiptTest() {
+		Basket basket = new Basket();
+		
+		basket.add(HouseRoast.get());
+		basket.add(darkItalian);
+		basket.add(new Mocha(HouseRoast.get()));
+		basket.add(HouseRoast.get());
+		basket.add(new Americano(darkItalian));
+
+		
+		basket.printReceipt();
 	}
 
 }
